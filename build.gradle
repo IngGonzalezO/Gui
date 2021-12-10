@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+buildscript {
+    repositories {
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.89" as java.lang.Object)
+    }
+}
+ext{
+    serenityVersion = '2.0.90'
+    serenityCucumberVersion = '1.9.49'
+}
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation 'io.cucumber:cucumber-java:11.0.4' as java.util.LinkedHashMap<java.lang.String, java.lang.String>
+    testImplementation 'io.cucumber:cucumber-junit:11.0.4' as java.util.LinkedHashMap<java.lang.String, java.lang.String>
+    testImplementation 'org.assertj:assertj-core:3.21.0' as java.util.LinkedHashMap<java.lang.String, java.lang.String>
+    testImplementation 'org.slf4j:slf4j-simple:1.7.29' as java.util.LinkedHashMap<java.lang.String, java.lang.String>
+    testImplementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    testImplementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+
+}
+gradle.startParameter.continueOnFailure = true
+
+def void apply(java.util.LinkedHashMap<java.lang.String, java.lang.String> stringStringLinkedHashMap) {}
+
+def void testImplementation(java.util.LinkedHashMap<java.lang.String, java.lang.String> stringStringLinkedHashMap) {}
